@@ -1,0 +1,13 @@
+#!/usr/bin/python3
+# HF028 看板服务入口
+import sys
+
+sys.path.insert(0, "/usr/lib")
+
+from displaydash.service import main  # noqa: E402
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        pass

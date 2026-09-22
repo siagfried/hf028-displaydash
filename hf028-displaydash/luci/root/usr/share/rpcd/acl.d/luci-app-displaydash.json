@@ -1,0 +1,18 @@
+{
+	"luci-app-displaydash": {
+		"description": "Grant access to DisplayDash status and configuration",
+		"read": {
+			"uci": [ "displaydash", "displaydash-screen", "homeproxy" ],
+			"ubus": {
+				"displaydash": [ "status", "subscriptions" ]
+			},
+			"file": {
+				"/tmp/displaydash/sys.json": [ "read" ],
+				"/tmp/displaydash/proxy.json": [ "read" ]
+			}
+		},
+		"write": {
+			"uci": [ "displaydash", "displaydash-screen" ]
+		}
+	}
+}

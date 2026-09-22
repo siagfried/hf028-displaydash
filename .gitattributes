@@ -1,0 +1,13 @@
+* text=auto
+*.sh text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.uc text eol=lf
+*.cmd text eol=crlf
+hf028-displaydash/service/usr/bin/* text eol=lf
+hf028-displaydash/service/etc/init.d/* text eol=lf
+*.gz binary
+*.iso binary
+*.bmp binary
+*.png binary
+*.exe binary

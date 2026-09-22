@@ -1,0 +1,56 @@
+{
+	"admin/services/displaydash": {
+		"title": "DisplayDash",
+		"order": 60,
+		"action": {
+			"type": "firstchild"
+		},
+		"depends": {
+			"acl": [ "luci-app-displaydash" ]
+		}
+	},
+	"admin/services/displaydash/overview": {
+		"title": "总览",
+		"order": 10,
+		"action": {
+			"type": "view",
+			"path": "displaydash/overview"
+		},
+		"depends": {
+			"acl": [ "luci-app-displaydash" ]
+		}
+	},
+	"admin/services/displaydash/settings": {
+		"title": "设置",
+		"order": 30,
+		"action": {
+			"type": "view",
+			"path": "displaydash/settings"
+		},
+		"depends": {
+			"acl": [ "luci-app-displaydash" ]
+		}
+	},
+	"admin/services/displaydash/theme": {
+		"title": "主题",
+		"order": 20,
+		"action": {
+			"type": "view",
+			"path": "displaydash/theme"
+		},
+		"depends": {
+			"acl": [ "luci-app-displaydash" ]
+		}
+	},
+	"admin/services/displaydash/subscription": {
+		"title": "订阅",
+		"order": 40,
+		"action": {
+			"type": "view",
+			"path": "displaydash/subscription"
+		},
+		"depends": {
+			"acl": [ "luci-app-displaydash" ]
+		}
+	}
+}

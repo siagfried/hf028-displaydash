@@ -1,0 +1,52 @@
+{
+  "archive": "C:\\Users\\David\\Documents\\ChatGPT\\HF028串口显示屏-历史归档-20260921-155735",
+  "moved": [
+    "usb-build",
+    "backup",
+    "hf028_displaydash_pkg",
+    "router_service",
+    "router_dashboard",
+    "tmp_rar",
+    "hf028-displaydash-package.tar.gz",
+    "hf028-displaydash.tar.gz",
+    "hf028-displaydash/bin",
+    "迁移与运维文档.md",
+    "重装运行手册.md",
+    "README.md",
+    "overlay/README.md",
+    "hf028-displaydash/README.md",
+    "overlay/test",
+    "overlay\\overlay2.sGUI.bak-20260908-175123",
+    "tools\\com0com\\com0com-3.0.0.0-i386-and-x64-signed.zip",
+    "tools\\com0com\\create-com10.cmd",
+    "tools\\com0com\\download-bridge.stderr.log",
+    "tools\\com0com\\download-bridge.stdout.log",
+    "tools\\com0com\\install-com10-silent.cmd",
+    "tools\\com0com\\install-com10.cmd",
+    "tools\\com0com\\install-comhash.log",
+    "tools\\com0com\\list-after-hash.log",
+    "tools\\com0com\\list-com10-2.log",
+    "tools\\com0com\\runas-test.txt",
+    "tools\\com0com\\setupc-help.log",
+    "tools\\com0com\\setupc-install.log",
+    "tools\\com0com\\signed2",
+    "tools\\com0com\\test-com10.ps1",
+    "tools\\com0com\\tools-detail.log",
+    "__pycache__",
+    "hf028-displaydash\\service\\usr\\lib\\displaydash\\__pycache__"
+  ],
+  "firmware": [
+    {
+      "file": "immortalwrt-25.12.1-x86-64-generic-ext4-combined-efi.img.gz",
+      "bytes": 21304549,
+      "sha256": "8a57d9912e7f12d3190996335197522d4831df5f8cdce67e4492ca1bf5f21bab",
+      "source": "C:\\Users\\David\\Downloads\\immortalwrt-25.12.1-x86-64-generic-ext4-combined-efi.img.gz"
+    },
+    {
+      "file": "immortalwrt-25.12.1-x86-64-generic-image-efi.iso",
+      "bytes": 39907328,
+      "sha256": "445d2f3697f95951f916c0890345721e1cf31e0b5aca3ee06136dd3cd5da90ec",
+      "source": "C:\\Users\\David\\Downloads\\immortalwrt-25.12.1-x86-64-generic-image-efi.iso"
+    }
+  ]
+}

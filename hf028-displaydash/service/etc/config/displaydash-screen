@@ -1,0 +1,51 @@
+# DisplayDash 屏幕工程配置 / DisplayDash screen profile configuration.
+# profile_name 是控制页显示名和 screen_profile 的值。
+# profile_name is the visible name and the value stored in screen_profile.
+# 控件映射来自 sGUI 工程；新增屏幕时复制一个 config screen 段并修改映射。
+# Control/page IDs come from the sGUI project; copy a section and edit them for a new screen.
+
+config screen 'overlay'
+	option profile_name '28TN-320240H-overlay'
+	# 仅放屏幕工程映射 / Keep only screen-project mappings here.
+	option page_logo_plain '0'
+	option page_progress '1'
+	option page_data '2'
+	option id_clock '0'
+	option id_status '1'
+	option id_ip '2'
+	option id_temp '3'
+	option id_up '4'
+	option id_dl '5'
+	option id_sub '6'
+	option id_node '7'
+	option id_prog '8'
+	option id_usage '9'
+	option id_exit '10'
+	option id_reset '11'
+	option id_online '12'
+	option id_prog_logo '0'
+	option id_qr '0'
+	option color_normal '19'
+
+config screen 'overlay2'
+	option profile_name '28TN-320240H-overlay2'
+	# 仅放屏幕工程映射 / Keep only screen-project mappings here.
+	option page_logo_plain '0'
+	option page_progress '1'
+	option page_data '2'
+	option id_clock '0'
+	option id_status '1'
+	option id_ip '2'
+	option id_temp '3'
+	option id_up '4'
+	option id_dl '5'
+	option id_sub '6'
+	option id_node '7'
+	option id_prog '8'
+	option id_usage '9'
+	option id_exit '10'
+	option id_reset '11'
+	option id_online '12'
+	option id_prog_logo '0'
+	option id_qr '0'
+	option color_normal '19'

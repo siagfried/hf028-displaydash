@@ -1,0 +1,55 @@
+#!/bin/sh
+# On-demand TCP bridge for the HF028 serial display.
+# Start it only while using a remote sGUI session; it owns /dev/ttyUSB0.
+
+PIDFILE=/var/run/displaydash-serial-bridge.pid
+LOGFILE=/tmp/displaydash-serial-bridge.log
+LISTEN_IP=${LISTEN_IP:-$(tailscale ip -4 2>/dev/null | head -n 1)}
+LISTEN_PORT=${LISTEN_PORT:-2000}
+SERIAL_DEV=${SERIAL_DEV:-$(uci -q get displaydash.main.port)}
+SERIAL_DEV=${SERIAL_DEV:-/dev/ttyUSB0}
+
+is_running() {
+	[ -r "$PIDFILE" ] || return 1
+	pid=$(cat "$PIDFILE" 2>/dev/null)
+	[ -n "$pid" ] && kill -0 "$pid" 2>/dev/null
+}
+
+start_bridge() {
+	[ -n "$LISTEN_IP" ] || { echo "Set LISTEN_IP or connect Tailscale first" >&2; return 1; }
+	if is_running; then
+		echo "serial bridge already running (pid $(cat "$PIDFILE"))"
+		return 0
+	fi
+	[ -e "$SERIAL_DEV" ] || { echo "missing $SERIAL_DEV" >&2; return 1; }
+	/etc/init.d/displaydash stop >/dev/null 2>&1 || true
+	/usr/bin/socat "TCP-LISTEN:${LISTEN_PORT},bind=${LISTEN_IP},reuseaddr,fork" \
+		"FILE:${SERIAL_DEV},raw,echo=0,b115200" \
+		>>"$LOGFILE" 2>&1 &
+	echo $! > "$PIDFILE"
+	sleep 1
+	if ! is_running; then
+		rm -f "$PIDFILE"
+		echo "failed to start serial bridge; see $LOGFILE" >&2
+		return 1
+	fi
+	echo "serial bridge listening on ${LISTEN_IP}:${LISTEN_PORT}"
+}
+
+stop_bridge() {
+	if is_running; then
+		kill "$(cat "$PIDFILE")" 2>/dev/null || true
+	fi
+	rm -f "$PIDFILE"
+	/etc/init.d/displaydash start >/dev/null 2>&1 || true
+	echo "serial bridge stopped; DisplayDash started"
+}
+
+case "$1" in
+	start) start_bridge ;;
+	stop) stop_bridge ;;
+	status)
+		if is_running; then echo "running (pid $(cat "$PIDFILE"))"; else echo "stopped"; fi
+		;;
+	*) echo "Usage: $0 {start|stop|status}" >&2; exit 2 ;;
+esac

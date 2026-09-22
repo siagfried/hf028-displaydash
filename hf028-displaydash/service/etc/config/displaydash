@@ -1,0 +1,76 @@
+config main 'main'
+	# 设备名（多屏时用不同配置文件区分，如 displaydash 与 displaydash2）
+	option instance 'default'
+	option screen_profile '28TN-320240H-overlay2'
+	# 串口
+	option port '/dev/ttyUSB0'
+	option baud '115200'
+	# 主题页中的全局通用显示设置 / Global common display settings
+	option direction '1'
+	option brightness_day '60'
+	option brightness_night '20'
+	option backlight_logo '40'
+	option day_start_hour '7'
+	option night_start_hour '22'
+	# 二维码（关闭时显示管理地址，开启后显示 WiFi 信息） / WiFi QR settings
+	option qr_enable '0'
+	option qr_ssid ''
+	option qr_password ''
+	# 开机停留（秒）/ 进度条一圈（秒）/ 最久等待（秒）
+	option boot_logo_sec '8'
+	option boot_prog_sec '30'
+	option boot_logo_timeout '180'
+	# 开机宽限期（秒）：期间不报故障
+	option boot_grace_sec '180'
+	option refresh_sec '10'
+	# ---- 系统采集 ----
+	option wan_iface 'auto'
+	# auto=按默认路由自动识别；也可填具体网口，如 eth1
+	option public_ip '223.5.5.5'
+	option net_check_sec '30'
+	option dns_check_sec '60'
+	option speed_switch '100'
+
+	# ---- 代理采集（HomeProxy/sing-box） ----
+	# none=不检测进程；留空=自动检测 sing-box
+	option service_proc ''
+	option srv_check_sec '10'
+	# 节点变化检测间隔（秒）
+	option node_check_sec '5'
+	# 节点变化后出口 IP 重查间隔（秒）
+	option exit_retry_sec '30'
+	option google_check_sec '60'
+	option google_url 'http://www.gstatic.com/generate_204'
+	option google_ms '800'
+
+	# ---- 订阅采集（内置抓取，无 subinfo.sh） ----
+	# 下面的参数全部放在 config sub 段中，按订阅分别配置。
+	# url_match 填该订阅 URL 中的一段用于匹配；服务器返回的数据优先。
+	#config sub 'sub1'
+	#	option url_match '74.211.106.18:2096'
+	#	option sub_refresh_sec '3600'
+	#	option reset_style 'month_start'
+	#	option sub_name_manual 'Bangwagon'
+	#	option sub_total_manual '0'
+	#	option sub_used_manual '0'
+	#	option sub_expire_manual ''
+
+	# ---- AP（在线人数） ----
+	option ap_ip ''
+	option ap_user 'admin'
+	option ap_password ''
+	option ap_check_sec '30'
+	option ap_clients_check_sec '10'
+
+	# ---- 状态阈值 ----
+	option load_warn '75'
+	option load_fail '95'
+	option mem_warn '10'
+	option mem_fail '5'
+	option temp_warn '70'
+	option temp_fail '85'
+	option disk_warn '10'
+	option disk_fail '5'
+
+	# 地区锁定（保留给后续 UI 备用）：订阅名=地区，逗号分隔
+	option region_fix ''

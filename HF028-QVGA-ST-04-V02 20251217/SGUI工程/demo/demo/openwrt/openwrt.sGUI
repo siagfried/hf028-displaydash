@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+    <frame frame="frame">
+        <frameW>320</frameW>
+        <frameH>240</frameH>
+        <parentImageNum>-1</parentImageNum>
+        <parentBackgroundNum>15</parentBackgroundNum>
+        <screenType>1</screenType>
+        <dpi>320*240(QVGA-3)</dpi>
+        <baud>115200</baud>
+        <blValue>1048077668</blValue>
+        <logo1>1</logo1>
+        <logo2>5</logo2>
+        <logox>38</logox>
+        <logoy>48</logoy>
+        <logow>248</logow>
+        <logoh>136</logoh>
+        <logotime>500</logotime>
+        <currentPage>0</currentPage>
+    </frame>
+    <page id="1">
+        <pageImageNum pageImageNum="-1"/>
+        <pageBackgroundNum pageBackgroundNum="15"/>
+        <pageHelpLineNum pageHelpLineNum="0"/>
+        <pageHelpLineLeft pageHelpLineLeft="0"/>
+        <pageHelpLineRight pageHelpLineRight="0"/>
+        <pageHelpLineTop pageHelpLineTop="0"/>
+        <pageHelpLineBottom pageHelpLineBottom="0"/>
+    </page>
+</ui>

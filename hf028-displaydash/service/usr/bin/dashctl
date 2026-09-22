@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+# 看板服务维护接口（默认配置 displaydash；可用 DISPLAYDASH_CFG=xxx 指定另一块屏）
+#
+# 用法：
+#   dashctl show                    # 查看当前配置
+#   dashctl set <key> <value>       # 修改任意配置项（保存即重启服务）
+#   dashctl log                     # 查看服务日志
+
+CONF=${DISPLAYDASH_CFG:-displaydash}
+SVC=/etc/init.d/displaydash
+
+case "$1" in
+    show)
+        uci show "$CONF"
+        ;;
+    set)
+        [ -n "$2" ] && [ -n "$3" ] || {
+            echo "usage: dashctl set <option> <value>"
+            exit 1
+        }
+        uci set "$CONF".@main[0]."$2"="$3"
+        uci commit "$CONF"
+        "$SVC" restart
+        echo "$2 updated"
+        ;;
+    log)
+        tail -n 80 /tmp/displaydash.log
+        ;;
+    restart)
+        "$SVC" restart
+        ;;
+    *)
+        echo "usage: dashctl {show|set|log|restart}"
+        ;;
+esac
